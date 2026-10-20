@@ -13,3 +13,15 @@ Log yang jujur tidak mengurangi nilai, sebanyak apa pun AI dipakai. Yang mengura
 - Prompt:
 - Dipakai:
 - Diubah:
+
+## (Entri 1)
+- Prompt: Bagaimana cara membuat penyimpanan data sumber daya dan peminjaman tanpa menggunakan database di Go?
+- Dipakai:Struktur Store pada file main.go
+- Diubah: saya memperbaiki kode yang awalnya saya samakan dengan struct yang digunakan dan menambahkan sync.Mutex untuk mengamankan akses dataseperti biasanya sehingga saya ubah menjadi :
+type Store struct {
+	mu               sync.Mutex
+	sumberDaya       []SumberDaya
+	peminjaman       []Peminjaman
+	nextSumberDayaID int
+	nextPeminjamanID int
+}
